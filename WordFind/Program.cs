@@ -6,34 +6,25 @@ namespace WordFind
 	{
 		static void Main(string[] args)
 		{
-			Dictionary<int, string> wordsDick = new Dictionary<int, string>();
-			int[] ids = new int[] { 0,1,2,3,4,5};
-			string[] words = new string[] {"esli", "ne", "goluboy", "narisuy", "vagon","drugoy"};
+			Dictionary<string, string> wordsDick = new Dictionary<string, string>();
+			string[] words = new string[] {"dog", "cat", "goat", "cock"};
+			string[] wordsMeaning = new string[] {"bark-bark", "meow", "beyaa", "kokuorekou"};
 
-			for (int i = 0; i < ids.Length; i++)
+			for (int i = 0; i < wordsMeaning.Length; i++)
 			{
-				wordsDick.Add(ids[i], words[i]);	
+				wordsDick.Add(words[i], wordsMeaning[i]);	
 			}
-			
+
 			string wordToSearch = Console.ReadLine();
-			bool foundFlag = false;
 
-			foreach (var item in wordsDick)
+			if (wordsDick.ContainsKey(wordToSearch))
 			{
-
-				if (wordToSearch==item.Value)
-				{
-					Console.WriteLine(item.Key);
-					foundFlag =true;
-				}
-				
+			Console.WriteLine(wordsDick[wordToSearch]);
 			}
-
-			if (!foundFlag)
+			else
 			{
-				Console.WriteLine("Нет слова");
+				Console.WriteLine("Нет такого слова");
 			}
-
 		}
 	}
 }
